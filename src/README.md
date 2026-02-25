@@ -11,19 +11,44 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 1. Install the dependencies:
 
-   ```
-   pip install fastapi uvicorn
+   ```bash
+   pip install -r requirements.txt
    ```
 
 2. Run the application:
 
-   ```
-   python app.py
+   ```bash
+   # Option 1: Using the convenient run script (recommended)
+   python run.py
+
+   # Option 2: Direct execution
+   python -m uvicorn src.app:app --reload
    ```
 
 3. Open your browser and go to:
+   - Web interface: http://localhost:8000
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
+
+## Testing
+
+The project includes a comprehensive test suite to ensure the API works correctly:
+
+```bash
+# Run all tests
+pytest test_app.py -v
+
+# Run tests with coverage (if pytest-cov is installed)
+pytest test_app.py --cov=src --cov-report=html
+```
+
+The tests cover:
+- Root redirect functionality
+- Getting all activities
+- Signing up for activities
+- Error handling for invalid activities
+- Multiple student signups
+- Data model validation
 
 ## API Endpoints
 
